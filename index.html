@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMP Islam AR-RAHMAN | Yayasan Pendidikan Islam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #A67C3A;
+      --gold-light: #F7EDD8;
+      --gold-mid: #C9963F;
+      --green: #1A5C40;
+      --green-light: #E6F2EC;
+      --green-mid: #267A54;
+      --bg: #FDFAF4;
+      --white: #fff;
+      --text: #1C1C1A;
+      --muted: #6B6860;
+      --border: rgba(166, 124, 58, 0.18);
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--green);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Amiri', serif;
+      font-size: 19px;
+      color: #F7EDD8;
+      letter-spacing: .02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 13px;
+      color: rgba(247, 237, 216, 0.65);
+    }
+    .nav-links a:hover { color: #F7EDD8; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--green);
+      padding: 3rem 2rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-geo {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(60deg, rgba(255,255,255,.025) 0, rgba(255,255,255,.025) 1px, transparent 0, transparent 40px),
+        repeating-linear-gradient(-60deg, rgba(255,255,255,.025) 0, rgba(255,255,255,.025) 1px, transparent 0, transparent 40px);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding-bottom: 3rem;
+    }
+    .bismillah {
+      font-family: 'Amiri', serif;
+      font-size: 22px;
+      color: var(--gold-mid);
+      margin-bottom: 1rem;
+      direction: rtl;
+      letter-spacing: .04em;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(247, 237, 216, 0.6);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+    .hero h1 {
+      font-family: 'Amiri', serif;
+      font-size: 38px;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: .4rem;
+    }
+    .hero-npsn {
+      font-size: 12px;
+      color: rgba(247, 237, 216, 0.5);
+      margin-bottom: 1.5rem;
+      letter-spacing: .04em;
+    }
+    .level-row {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: .5rem;
+    }
+    .level-pill {
+      background: rgba(255,255,255,.1);
+      border: 0.5px solid rgba(247,237,216,.3);
+      color: #F7EDD8;
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 5px 18px;
+      border-radius: 20px;
+    }
+    .hero-loc {
+      font-size: 13px;
+      color: rgba(247, 237, 216, 0.55);
+      margin-top: 1rem;
+    }
+    .hero-wave {
+      display: block;
+      width: 100%;
+      margin-bottom: -3px;
+    }
+
+    /* ── AKREDITASI STRIP ── */
+    .akred-strip {
+      background: var(--gold-light);
+      border-top: 1px solid rgba(166,124,58,.2);
+      border-bottom: 1px solid rgba(166,124,58,.2);
+      padding: 1.25rem 2rem;
+    }
+    .akred-inner {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .akred-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border: 0.5px solid rgba(166,124,58,.22);
+      border-radius: 10px;
+      padding: .65rem 1.1rem;
+    }
+    .akred-letter {
+      font-family: 'Amiri', serif;
+      font-size: 28px;
+      color: var(--gold);
+      font-weight: 700;
+      line-height: 1;
+      min-width: 22px;
+      text-align: center;
+    }
+    .akred-info-name { font-size: 13px; font-weight: 500; color: var(--text); }
+    .akred-info-sub { font-size: 11px; color: var(--muted); }
+
+    /* ── SECTION ── */
+    section {
+      padding: 2.5rem 2rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .sec-kicker {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+    .sec-title {
+      font-family: 'Amiri', serif;
+      font-size: 24px;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+    }
+
+    /* ── JENJANG ── */
+    .jenjang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+    }
+    .jenjang-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-top: 3px solid var(--green-mid);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .j-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green-light);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .85rem;
+    }
+    .j-icon svg { width: 20px; height: 20px; }
+    .j-name { font-weight: 500; font-size: 14px; margin-bottom: 4px; }
+    .j-desc { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+    .j-tags { margin-top: .75rem; display: flex; flex-wrap: wrap; gap: 5px; }
+    .j-tag {
+      font-size: 11px;
+      background: var(--green-light);
+      color: var(--green);
+      padding: 2px 10px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    /* ── VISI MISI ── */
+    .vm-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 520px) { .vm-wrap { grid-template-columns: 1fr; } }
+    .vm-box {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .vm-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-mid));
+    }
+    .vm-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    .vm-text { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+    /* ── FASILITAS ── */
+    .fas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+    }
+    .fas-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem;
+      text-align: center;
+    }
+    .fas-num {
+      font-family: 'Amiri', serif;
+      font-size: 30px;
+      color: var(--green);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .fas-unit { font-size: 13px; color: var(--muted); margin-left: 2px; }
+    .fas-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* ── GURU ── */
+    .guru-summary {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .guru-stat {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: .65rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .guru-stat-num {
+      font-family: 'Amiri', serif;
+      font-size: 24px;
+      color: var(--green);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .guru-stat-label { font-size: 12.5px; color: var(--muted); }
+    .guru-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 10px;
+    }
+    .guru-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .guru-av {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      border: 1.5px solid rgba(166,124,58,.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Amiri', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .guru-name { font-size: 13px; font-weight: 500; }
+    .guru-role { font-size: 11.5px; color: var(--muted); }
+
+    /* ── KONTAK ── */
+    .kontak-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .kontak-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .kontak-key {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .kontak-val { font-size: 13.5px; font-weight: 500; color: var(--text); }
+    .kontak-val a { color: var(--green); }
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--green);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+    .map-btn:hover { background: var(--green-mid); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green);
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Amiri', serif;
+      font-size: 20px;
+      color: #F7EDD8;
+      margin-bottom: .35rem;
+    }
+    .footer-sub { font-size: 12px; color: rgba(247, 237, 216, 0.55); }
+    .footer-div {
+      width: 40px;
+      height: 0.5px;
+      background: rgba(247, 237, 216, 0.2);
+      margin: .75rem auto;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 28px; }
+      section { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">SMP Islam AR-RAHMAN</span>
+    <div class="nav-links">
+      <a href="#jenjang">Jenjang</a>
+      <a href="#fasilitas">Fasilitas</a>
+      <a href="#guru">Guru</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-geo"></div>
+    <div class="hero-inner">
+      <div class="bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+      <div class="hero-eyebrow">Yayasan Pendidikan Islam</div>
+      <h1>AR-RAHMAN</h1>
+      <div class="hero-npsn">NPSN: 20606731 &nbsp;·&nbsp; Swasta</div>
+      <div class="level-row">
+        <span class="level-pill">TK</span>
+        <span class="level-pill">SD</span>
+        <span class="level-pill">SMP</span>
+      </div>
+      <div class="hero-loc">📍 Jl. Raden Saleh No.20, Kec. Karang Tengah, Kota Tangerang</div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,28 C480,56 960,0 1440,28 L1440,48 L0,48 Z" fill="#FDFAF4"/>
+    </svg>
+  </div>
+
+  <!-- AKREDITASI -->
+  <div class="akred-strip">
+    <div class="akred-inner">
+      <div class="akred-card">
+        <div class="akred-letter">A</div>
+        <div>
+          <div class="akred-info-name">TK AR-RAHMAN</div>
+          <div class="akred-info-sub">Terakreditasi A</div>
+        </div>
+      </div>
+      <div class="akred-card">
+        <div class="akred-letter">A</div>
+        <div>
+          <div class="akred-info-name">SD AR-RAHMAN</div>
+          <div class="akred-info-sub">Terakreditasi A</div>
+        </div>
+      </div>
+      <div class="akred-card">
+        <div class="akred-letter">B</div>
+        <div>
+          <div class="akred-info-name">SMP AR-RAHMAN</div>
+          <div class="akred-info-sub">Terakreditasi B</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JENJANG -->
+  <section id="jenjang">
+    <div class="sec-kicker">Jenjang Pendidikan</div>
+    <div class="sec-title">Satu yayasan, tiga jenjang</div>
+
+    <!-- TK & SD ringkas -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:14px;">
+      <div class="jenjang-card" style="border-top-color:#A67C3A;">
+        <div class="j-icon" style="background:var(--gold-light);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A67C3A" stroke-width="2">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M6 20v-2a6 6 0 0112 0v2"/>
+          </svg>
+        </div>
+        <div class="j-name">TK AR-RAHMAN</div>
+        <div class="j-desc">Pendidikan anak usia dini berbasis Islami yang hangat dan menyenangkan.</div>
+        <div class="j-tags" style="margin-top:.6rem;">
+          <span class="j-tag" style="background:var(--gold-light);color:var(--gold);">Usia 4-6 th</span>
+        </div>
+      </div>
+      <div class="jenjang-card" style="border-top-color:#A67C3A;">
+        <div class="j-icon" style="background:var(--gold-light);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#A67C3A" stroke-width="2">
+            <path d="M2 20h20M4 20V10l8-6 8 6v10"/>
+            <rect x="9" y="14" width="6" height="6" rx="1"/>
+          </svg>
+        </div>
+        <div class="j-name">SD AR-RAHMAN</div>
+        <div class="j-desc">Kurikulum nasional dipadukan dengan pendidikan karakter dan nilai Islami.</div>
+        <div class="j-tags" style="margin-top:.6rem;">
+          <span class="j-tag" style="background:var(--gold-light);color:var(--gold);">Kelas 1-6</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SMP utama lebih detail -->
+    <div style="background:var(--white);border:0.5px solid var(--border);border-top:3px solid var(--green-mid);border-radius:14px;padding:1.5rem;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
+        <div class="j-icon" style="width:44px;height:44px;flex-shrink:0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#267A54" stroke-width="2" width="22" height="22">
+            <path d="M12 2l9 4v6c0 5-4 9-9 10C3 21 3 16 3 12V6l9-4z"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-weight:500;font-size:15px;">SMP Islam AR-RAHMAN</div>
+          <div style="font-size:12px;color:var(--muted);">NPSN: 20606731 · Terakreditasi B · Swasta</div>
+        </div>
+      </div>
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:1.1rem;">
+        SMP Islam AR-RAHMAN hadir sebagai jenjang lanjutan dalam satu lingkungan yayasan. Kami mengutamakan pembentukan karakter siswa yang berakhlak, mandiri, dan siap menghadapi tantangan zaman dengan tetap berlandaskan nilai-nilai Islami yang hangat.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-bottom:1rem;">
+        <div style="background:var(--green-light);border-radius:10px;padding:.8rem;text-align:center;">
+          <div style="font-family:'Amiri',serif;font-size:22px;color:var(--green);font-weight:700;line-height:1;">7-9</div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:3px;">Kelas</div>
+        </div>
+        <div style="background:var(--green-light);border-radius:10px;padding:.8rem;text-align:center;">
+          <div style="font-family:'Amiri',serif;font-size:22px;color:var(--green);font-weight:700;line-height:1;">4</div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:3px;">Tenaga Pendidik</div>
+        </div>
+        <div style="background:var(--green-light);border-radius:10px;padding:.8rem;text-align:center;">
+          <div style="font-family:'Amiri',serif;font-size:22px;color:var(--green);font-weight:700;line-height:1;">B</div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:3px;">Akreditasi</div>
+        </div>
+        <div style="background:var(--green-light);border-radius:10px;padding:.8rem;text-align:center;">
+          <div style="font-family:'Amiri',serif;font-size:22px;color:var(--green);font-weight:700;line-height:1;">9</div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:3px;">Ruang Kelas</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <span class="j-tag">Kelas 7-9</span>
+        <span class="j-tag">Karakter Islami</span>
+        <span class="j-tag">Lab Komputer</span>
+        <span class="j-tag">Perpustakaan</span>
+        <span class="j-tag">Internet 50Mb</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISI MISI -->
+  <section>
+    <div class="sec-kicker">Visi & Misi</div>
+    <div class="sec-title">Landasan kami dalam mendidik</div>
+    <div class="vm-wrap">
+      <div class="vm-box">
+        <div class="vm-label">Visi</div>
+        <div class="vm-text">
+          Menjadi lembaga pendidikan Islam yang melahirkan generasi berakhlak mulia,
+          berprestasi, dan berdaya guna bagi masyarakat.
+        </div>
+      </div>
+      <div class="vm-box">
+        <div class="vm-label">Misi</div>
+        <div class="vm-text">
+          Menyelenggarakan pendidikan berkualitas berbasis nilai Islami, membangun karakter
+          jujur dan mandiri, serta membina hubungan erat antara sekolah dan keluarga.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FASILITAS -->
+  <section id="fasilitas">
+    <div class="sec-kicker">Fasilitas</div>
+    <div class="sec-title">Sarana & prasarana</div>
+    <div class="fas-grid">
+      <div class="fas-card">
+        <div class="fas-num">9</div>
+        <div class="fas-label">Ruang Kelas (Baik)</div>
+      </div>
+      <div class="fas-card">
+        <div class="fas-num">1</div>
+        <div class="fas-label">Lab Komputer</div>
+      </div>
+      <div class="fas-card">
+        <div class="fas-num">1</div>
+        <div class="fas-label">Perpustakaan</div>
+      </div>
+      <div class="fas-card">
+        <div class="fas-num">50<span class="fas-unit">Mb</span></div>
+        <div class="fas-label">Koneksi Internet</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GURU -->
+  <section id="guru">
+    <div class="sec-kicker">Tenaga Pendidik</div>
+    <div class="sec-title">Guru kami</div>
+    <div class="guru-summary">
+      <div class="guru-stat">
+        <div class="guru-stat-num">4</div>
+        <div class="guru-stat-label">Total Guru</div>
+      </div>
+      <div class="guru-stat">
+        <div class="guru-stat-num">3</div>
+        <div class="guru-stat-label">Guru Laki-laki</div>
+      </div>
+      <div class="guru-stat">
+        <div class="guru-stat-num">1</div>
+        <div class="guru-stat-label">Guru Perempuan</div>
+      </div>
+    </div>
+    <div class="guru-grid">
+      <div class="guru-card">
+        <div class="guru-av">HA</div>
+        <div>
+          <div class="guru-name">Harianto, S.Pd</div>
+          <div class="guru-role">Kepala Sekolah</div>
+        </div>
+      </div>
+      <div class="guru-card">
+        <div class="guru-av">GU</div>
+        <div>
+          <div class="guru-name">Gunawan, S.Pd</div>
+          <div class="guru-role">Tenaga Pendidik</div>
+        </div>
+      </div>
+      <div class="guru-card">
+        <div class="guru-av">RI</div>
+        <div>
+          <div class="guru-name">Rizal Maulidi, S.I.Kom</div>
+          <div class="guru-role">Tenaga Pendidik</div>
+        </div>
+      </div>
+      <div class="guru-card">
+        <div class="guru-av">SA</div>
+        <div>
+          <div class="guru-name">Suci Afrilya, S.Psi</div>
+          <div class="guru-role">Tenaga Pendidik</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section id="kontak">
+    <div class="sec-kicker">Kontak & Lokasi</div>
+    <div class="sec-title">Temukan kami</div>
+    <div class="kontak-grid">
+      <div class="kontak-card">
+        <div class="kontak-key">Alamat</div>
+        <div class="kontak-val">Jl. Raden Saleh No.20, RT 2/RW 4</div>
+      </div>
+      <div class="kontak-card">
+        <div class="kontak-key">Kecamatan</div>
+        <div class="kontak-val">Kec. Karang Tengah, Kota Tangerang 15157</div>
+      </div>
+      <div class="kontak-card">
+        <div class="kontak-key">Telepon</div>
+        <div class="kontak-val"><a href="tel:0217306211">021-7306211</a></div>
+      </div>
+      <div class="kontak-card">
+        <div class="kontak-key">Email</div>
+        <div class="kontak-val">
+          <a href="mailto:smpislamarrahman@yahoo.com">smpislamarrahman@yahoo.com</a>
+        </div>
+      </div>
+    </div>
+    <a class="map-btn" href="https://maps.google.com/?q=-6.2195,106.7059" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      Lihat di Google Maps
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">AR-RAHMAN</div>
+    <div class="footer-sub">Yayasan Pendidikan Islam · TK · SD · SMP</div>
+    <div class="footer-div"></div>
+    <div class="footer-sub">Jl. Raden Saleh No.20, Kec. Karang Tengah, Kota Tangerang · 021-7306211</div>
+    <div class="footer-div"></div>
+    <div class="footer-sub">© 2025 Yayasan AR-RAHMAN · Semua hak dilindungi</div>
+  </footer>
+
+</body>
+</html>
